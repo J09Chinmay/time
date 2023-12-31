@@ -45,40 +45,23 @@
             margin-top: 10px;
         }
 
-        .prompt {
-            color: #00FF00;
-        }
-
-        .command {
-            color: #FFFFFF;
-        }
-
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Style for the button */
+        /* Button styles */
         .button {
-            padding: 10px 20px;
-            background-color: #00FF00;
+            padding: 8px 15px;
+            background-color: #CCCCCC;
             color: #000000;
             border: none;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 10px;
             border-radius: 5px;
             display: flex;
             align-items: center;
         }
 
-        .button img {
-            width: 20px; /* Adjust image size as needed */
-            margin-right: 10px;
+        /* Icon styles */
+        .button::before {
+            content: attr(data-icon);
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -88,15 +71,29 @@
         <span class="prompt">DEVIL'S DESKTOP:</span><span class="command">~$</span> <span class="countdown" id="datetime">Fetching...</span>
     </pre>
 
-    <!-- Button with Google logo to open Google search -->
-    <button class="button" onclick="openGoogle()">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo">
-        Open Google
-    </button>
+    <!-- Button for Google -->
+    <button class="button" data-icon="G" onclick="openGoogle()">Open Google</button>
+
+    <!-- Button for Leetcode -->
+    <button class="button" data-icon="L" onclick="openLeetcode()">Open Leetcode</button>
+
+    <!-- Button for Gmail -->
+    <button class="button" data-icon="M" onclick="openGmail()">Open Gmail</button>
+
+    <!-- Button for YouTube -->
+    <button class="button" data-icon="Y" onclick="openYouTube()">Open YouTube</button>
+
+    <!-- Button for GitHub -->
+    <button class="button" data-icon="G" onclick="openGitHub()">Open GitHub</button>
+
+    <!-- Button for Localhost - GetState -->
+    <button class="button" data-icon="S" onclick="openGetState()">Get State - Goa</button>
+
+    <!-- Button for Localhost - GetPlaceDetails -->
+    <button class="button" data-icon="P" onclick="openGetPlaceDetails()">Get Place Details - Nuranang Falls</button>
 
     <script>
-        // Function to update current date and time
-        function updateDateTime() {
+             function updateDateTime() {
             const now = new Date();
             const year = now.getFullYear();
             const month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -114,10 +111,39 @@
 
         // Initial call to display date and time immediately
         updateDateTime();
-
         // Function to open Google search
         function openGoogle() {
             window.open('https://www.google.com/', '_blank');
+        }
+
+        // Function to open Leetcode
+        function openLeetcode() {
+            window.open('https://leetcode.com/problemset/all/', '_blank');
+        }
+
+        // Function to open Gmail
+        function openGmail() {
+            window.open('https://accounts.google.com/b/0/AddMailService', '_blank');
+        }
+
+        // Function to open YouTube
+        function openYouTube() {
+            window.open('https://www.youtube.com/', '_blank');
+        }
+
+        // Function to open GitHub
+        function openGitHub() {
+            window.open('https://github.com/', '_blank');
+        }
+
+        // Function to open GetState - Goa
+        function openGetState() {
+            window.open('http://localhost:8080/api/GetState/Goa', '_blank');
+        }
+
+        // Function to open GetPlaceDetails - Nuranang Falls
+        function openGetPlaceDetails() {
+            window.open('http://localhost:8080/api/GetPlaceDetails/Nuranang%20Falls', '_blank');
         }
     </script>
 </body>
